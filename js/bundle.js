@@ -56,16 +56,22 @@
 	var vm = new Vue({
 	  el: '#el',
 	  data: {
-	      test: "Vue.js test",
+	      inputTodo: "",
+	      outputTodo: ""
+	  },
+	  methods: {
+	      addTodo: function(){
+	        this.outputTodo = this.inputTodo;
+	      }
 	  }
-	})
+	});
 
 
 /***/ },
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = "<div id=el><p class=test>{{test}}</p></div>";
+	module.exports = "<div id=el><p class=test>{{test}}</p><input v-model=inputTodo placeholder=\"Add a ToDo item\"> <input type=button v-on=\"click: addTodo\" value=\"add todo\"><ul><li>{{outputTodo}}</li></ul></div>";
 
 /***/ },
 /* 2 */
