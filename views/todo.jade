@@ -1,0 +1,6 @@
+div#el
+  p.test {{test}}
+  input(v-model='inputTodo', placeholder="Add a ToDo item")
+  input(v-on='click: addTodo', type='button', value='add todo')
+  ul
+    li {{outputTodo}}

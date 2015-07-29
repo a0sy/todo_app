@@ -1,6 +1,11 @@
 /* require */
-var html = require('../todo.html')
-document.getElementById("todo-wrapper").innerHTML = html;
+/* var html = require('../todo.html') */
+var jadeObj = require("../views/index.jade");
+var TodoJadeObj = require("../views/todo.jade");
+jadeObj();
+var todoHtml = TodoJadeObj();
+
+document.getElementById("todo-wrapper").innerHTML = todoHtml;
 
 require('../css/style.css');
 require('../css/todo.css');
