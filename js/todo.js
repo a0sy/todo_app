@@ -9,15 +9,17 @@ require('../css/todo.css');
 
 var Vue = require('vue');
 
+/* todo */
 var vm = new Vue({
-  el: '#todo',
+  el: '#todos',
   data: {
-      inputTodo: "",
-      outputTodo: ""
+      inputTodoName: "",
+      todos: []
   },
   methods: {
       addTodo: function(){
-        this.outputTodo = this.inputTodo;
+        this.todos.push( { name: this.inputTodoName } );
+        this.inputTodoName = "";
       }
   }
 });
