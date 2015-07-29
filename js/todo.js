@@ -10,7 +10,7 @@ require('../css/todo.css');
 var Vue = require('vue');
 
 var vm = new Vue({
-  el: '#el',
+  el: '#todo',
   data: {
       inputTodo: "",
       outputTodo: ""
