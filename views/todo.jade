@@ -3,4 +3,6 @@ div#todos
   input(v-model='inputTodoName', placeholder="Add a ToDo item")
   input(v-on='click: addTodo', type='button', value='add todo')
   ul
-    li(v-repeat='todo in todos') {{todo.name}}
+    li.todo(v-repeat='todo in todos')
+      input(v-model='todo.completed', type='checkbox')
+      label(v-class='completed: todo.completed') {{todo.name}} + {{todo.completed}}

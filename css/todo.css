@@ -1,4 +1,7 @@
 /* todo style */
-.test {
-  color: #d33;
+.todo {
+  list-style-type: none;
+}
+.completed {
+  text-decoration: line-through;
 }

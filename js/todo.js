@@ -18,7 +18,7 @@ var vm = new Vue({
   },
   methods: {
       addTodo: function(){
-        this.todos.push( { name: this.inputTodoName } );
+        this.todos.push( { completed: false, name: this.inputTodoName } );
         this.inputTodoName = "";
       }
   }
