@@ -1,5 +1,5 @@
 div#todos
-  p.test {{test}}
+  a(v-on='click: allComplete') Check All
   input(v-model='inputTodoName', placeholder="Add a ToDo item")
   input(v-on='click: addTodo', type='button', value='add todo')
   ul
