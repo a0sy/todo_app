@@ -15,7 +15,6 @@ var vm = new Vue({
   data: {
     inputTodoName: "",
     todos: [],
-    allCompleted: false,
     clearCompleted: false
   },
   methods: {
@@ -23,13 +22,14 @@ var vm = new Vue({
       this.todos.push( { completed: false, name: this.inputTodoName } );
       this.inputTodoName = "";
     },
-    allComplete: function() {
+    allComplete: function() {;
+      var allCompleted = false
       /* 全て完了済みかチェック */
-      this.allCompleted = this.todos.every(function(element){ return (element.completed === true) });
+      allCompleted = this.todos.every(function(element){ return (element.completed === true) });
 
       /* 全て完了済みだった場合, 全て未完了にする / 未完了がある場合は全て完了にする */
       for (i = 0; i < this.todos.length; i++) {
-        this.todos[i].completed = !this.allCompleted;
+        this.todos[i].completed = !allCompleted;
       }
     },
     clearComplete: function() {
