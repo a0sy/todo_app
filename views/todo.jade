@@ -6,3 +6,4 @@ div#todos
     li.todo(v-repeat='todo in todos')
       input(v-model='todo.completed', type='checkbox')
       label(v-class='completed: todo.completed') {{todo.name}} + {{todo.completed}}
+  a(v-on='click: clearComplete') Clear completed
