@@ -17,13 +17,25 @@ var vm = new Vue({
     todos: [],
     clearCompleted: false
   },
+  watch: {
+    "todos": {
+      handler: function () {
+        //console.log('new: %s, old: %s', val, oldVal);
+        var result = this.todos.some(function(element) {
+          return (element.completed);
+        });
+        this.clearCompleted = result;
+      },
+      deep: true
+    }
+  },
   methods: {
     addTodo: function() {
       this.todos.push( { completed: false, name: this.inputTodoName } );
       this.inputTodoName = "";
     },
     allComplete: function() {;
-      var allCompleted = false
+      var allCompleted = false;
       /* 全て完了済みかチェック */
       allCompleted = this.todos.every(function(element){ return (element.completed === true) });
 
