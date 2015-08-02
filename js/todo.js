@@ -20,7 +20,6 @@ var vm = new Vue({
   watch: {
     "todos": {
       handler: function () {
-        //console.log('new: %s, old: %s', val, oldVal);
         var result = this.todos.some(function(element) {
           return (element.completed);
         });
@@ -48,6 +47,9 @@ var vm = new Vue({
       this.todos = this.todos.filter(function(element) {
         return (!element.completed);
       });
+    },
+    delTodo: function(index) {
+      this.todos.splice(index, 1);
     }
   }
 });
