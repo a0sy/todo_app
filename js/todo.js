@@ -28,6 +28,13 @@ var vm = new Vue({
       deep: true
     }
   },
+  computed: {
+    lefts: function() {
+      return this.todos.filter(function(element) {
+        return (!element.completed);
+      }).length;
+    }
+  },
   methods: {
     addTodo: function() {
       this.todos.push( { completed: false, name: this.inputTodoName } );
