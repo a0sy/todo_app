@@ -69,6 +69,13 @@ var vm = new Vue({
           this.todos[i].hide = true;
         }
       }
+    },
+    showComplete: function() {
+      for (i = 0; i < this.todos.length; i++) {
+        if (this.todos[i].completed === false) {
+          this.todos[i].hide = true;
+        }
+      }
     }
   }
 });
