@@ -64,6 +64,7 @@ var vm = new Vue({
       }
     },
     showActive: function() {
+      this.showAll();
       for (i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === true) {
           this.todos[i].hide = true;
@@ -71,6 +72,7 @@ var vm = new Vue({
       }
     },
     showComplete: function() {
+      this.showAll();
       for (i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === false) {
           this.todos[i].hide = true;
