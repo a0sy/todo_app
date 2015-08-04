@@ -58,6 +58,11 @@ var vm = new Vue({
     delTodo: function(index) {
       this.todos.splice(index, 1);
     },
+    showAll: function() {
+      for (i = 0; i < this.todos.length; i++) {
+        this.todos[i].hide = false
+      }
+    },
     showActive: function() {
       for (i = 0; i < this.todos.length; i++) {
         if (this.todos[i].completed === true) {
