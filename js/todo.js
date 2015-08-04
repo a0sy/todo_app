@@ -37,10 +37,10 @@ var vm = new Vue({
   },
   methods: {
     addTodo: function() {
-      this.todos.push( { completed: false, name: this.inputTodoName } );
+      this.todos.push( { hide: false, completed: false, name: this.inputTodoName } );
       this.inputTodoName = "";
     },
-    allComplete: function() {;
+    allComplete: function() {
       var allCompleted = false;
       /* 全て完了済みかチェック */
       allCompleted = this.todos.every(function(element){ return (element.completed === true) });
@@ -57,6 +57,13 @@ var vm = new Vue({
     },
     delTodo: function(index) {
       this.todos.splice(index, 1);
+    },
+    showActive: function() {
+      for (i = 0; i < this.todos.length; i++) {
+        if (this.todos[i].completed === true) {
+          this.todos[i].hide = true;
+        }
+      }
     }
   }
 });

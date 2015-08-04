@@ -3,9 +3,16 @@ div#todos
   input(v-model='inputTodoName', placeholder="Add a ToDo item")
   input(v-on='click: addTodo', type='button', value='add todo')
   ul
-    li.todo(v-repeat='todo in todos')
+    li.todo(v-repeat='todo in todos' v-class='hide: todo.hide')
       input(v-model='todo.completed', type='checkbox')
       label(v-class='completed: todo.completed') {{todo.name}}
         a(v-on='click: delTodo($index)') &nbsp;×
   div {{lefts}} items left
+  ul
+    li
+      a(v-on='click: showAll') All
+    li
+      a(v-on='click: showActive') Active
+    li
+      a(v-on='click: showCompleted') Completed
   a(v-on='click: clearComplete' v-show='clearCompleted') Clear completed
