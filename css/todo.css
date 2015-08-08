@@ -1,4 +1,7 @@
 /* todo style */
+.all-complete {
+  margin-right: 2px;
+}
 .todo {
   list-style-type: none;
 }
@@ -7,4 +10,59 @@
 }
 .hide {
   display: none;
+}
+
+/* footer */
+#footer {
+  overflow: hidden;
+  position: relative;
+  padding: 10px 5px 10px 5px;
+}
+.left {
+  display: block;
+  float: left;
+  font-size: 11px;
+}
+.filter {
+  padding: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 165px;
+  height: 25px;
+}
+.filter > li {
+  display: inline-block;
+  margin: 0px 2px 0px 2px;
+}
+.clear-complete {
+  display: block;
+  float: right;
+  cursor: pointer;
+  font-size: 11px;
+}
+.clear-complete:hover {
+  text-decoration: underline;
+}
+
+/* button */
+.button {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  color: #3b3b3b;
+  font-size: 11px;
+  background: #ffffff;
+  padding: 3px 6px 3px 6px;
+  border: solid #ccc 1px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #d9d9d9;
+  text-decoration: none;
 }

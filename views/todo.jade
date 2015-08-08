@@ -1,5 +1,5 @@
 div#todos
-  a(v-on='click: allComplete') Check All
+  a.button.all-complete(v-on='click: allComplete') ∨
   input(v-model='inputTodoName', placeholder="Add a ToDo item")
   input(v-on='click: addTodo', type='button', value='add todo')
   ul
@@ -7,12 +7,13 @@ div#todos
       input(v-model='todo.completed', type='checkbox')
       label(v-class='completed: todo.completed') {{todo.name}}
         a(v-on='click: delTodo($index)') &nbsp;×
-  div {{lefts}} items left
-  ul
-    li
-      a(v-on='click: showAll') All
-    li
-      a(v-on='click: showActive') Active
-    li
-      a(v-on='click: showComplete') Completed
-  a(v-on='click: clearComplete' v-show='clearCompleted') Clear completed
+  div#footer
+    div.left {{lefts}} items left
+    ul.filter
+      li
+        a.button(v-on='click: showAll') All
+      li
+        a.button(v-on='click: showActive') Active
+      li
+        a.button(v-on='click: showComplete') Completed
+    a.clear-complete(v-on='click: clearComplete' v-show='clearCompleted') Clear completed
