@@ -17,3 +17,5 @@ form#todos
       li
         a.button(v-on='click: showComplete') Completed
     a.clear-complete(v-on='click: clearComplete' v-show='clearCompleted') Clear completed
+  // debug
+  button(v-on='click: clearStorage') Clear localStorage

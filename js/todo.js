@@ -17,6 +17,12 @@ var vm = new Vue({
     todos: [],
     clearCompleted: false
   },
+  created: function() {
+    for (i = 0; i < localStorage.length; i++) {
+      this.todos.push(JSON.parse(localStorage.getItem(i.toString())));
+      //console.log(JSON.parse(localStorage.getItem(i.toString())))
+    }
+  },
   watch: {
     "todos": {
       handler: function () {
@@ -38,7 +44,7 @@ var vm = new Vue({
   methods: {
     addTodo: function() {
       var todoData = { hide: false, completed: false, name: this.inputTodoName };
-      var todoIndex = this.todos.length - 1;
+      var todoIndex = this.todos.length;
 
       // save vue obj
       this.todos.push(todoData);
@@ -85,6 +91,10 @@ var vm = new Vue({
           this.todos[i].hide = true;
         }
       }
+    },
+    // localStorage debug
+    clearStorage: function() {
+      localStorage.clear();
     }
   }
 });
