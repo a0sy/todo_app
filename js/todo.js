@@ -37,15 +37,22 @@ var vm = new Vue({
   },
   methods: {
     addTodo: function() {
-      this.todos.push( { hide: false, completed: false, name: this.inputTodoName } );
+      var todoData = { hide: false, completed: false, name: this.inputTodoName };
+      var todoIndex = this.todos.length - 1;
+
+      // save vue obj
+      this.todos.push(todoData);
+      // save local storage
+      localStorage.setItem(todoIndex.toString(), JSON.stringify(todoData));
+      // reset textbox
       this.inputTodoName = "";
     },
     allComplete: function() {
       var allCompleted = false;
-      /* 全て完了済みかチェック */
+      // 全て完了済みかチェック
       allCompleted = this.todos.every(function(element){ return (element.completed === true) });
 
-      /* 全て完了済みだった場合, 全て未完了にする / 未完了がある場合は全て完了にする */
+      // 全て完了済みだった場合, 全て未完了にする. 未完了がある場合は全て完了にする
       for (i = 0; i < this.todos.length; i++) {
         this.todos[i].completed = !allCompleted;
       }
