@@ -20,7 +20,6 @@ var vm = new Vue({
   created: function() {
     for (i = 0; i < localStorage.length; i++) {
       this.todos.push(JSON.parse(localStorage.getItem(i.toString())));
-      //console.log(JSON.parse(localStorage.getItem(i.toString())))
     }
   },
   watch: {
@@ -44,12 +43,12 @@ var vm = new Vue({
   methods: {
     addTodo: function() {
       var todoData = { hide: false, completed: false, name: this.inputTodoName };
-      var todoIndex = this.todos.length;
+      var lsIndex = this.todos.length;
 
       // save vue obj
       this.todos.push(todoData);
       // save local storage
-      localStorage.setItem(todoIndex.toString(), JSON.stringify(todoData));
+      localStorage.setItem(lsIndex.toString(), JSON.stringify(todoData));
       // reset textbox
       this.inputTodoName = "";
     },
@@ -67,9 +66,11 @@ var vm = new Vue({
       this.todos = this.todos.filter(function(element) {
         return (!element.completed);
       });
+      this.sync();
     },
     delTodo: function(index) {
       this.todos.splice(index, 1);
+      this.sync();
     },
     showAll: function() {
       for (i = 0; i < this.todos.length; i++) {
@@ -92,9 +93,18 @@ var vm = new Vue({
         }
       }
     },
-    // localStorage debug
+    // clear localStorage
     clearStorage: function() {
-      localStorage.clear();
+      for(key in localStorage) {
+        delete localStorage[key];
+      }
+    },
+    // todo => localStorage
+    sync: function() {
+      this.clearStorage();
+      for (i = 0; i < this.todos.length; i++) {
+        localStorage.setItem(i.toString(), JSON.stringify(this.todos[i]));
+      }
     }
   }
 });
